@@ -17,7 +17,8 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3  
         with:
-          node-version: 20  
+          node-version: '20'  # Specify Node.js version as a string
+
       - name: Install dependencies
         uses: bahmutov/npm-install@v1
 
