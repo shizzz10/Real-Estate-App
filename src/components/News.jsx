@@ -15,7 +15,7 @@ const News = () => {
       
       <div className="newsCart">
       <a href="https://www.dawn.com/news/1809469" target='blank'> 
-      <img src="/tax1.jpg" alt="" />
+      <img src="./tax1.jpg" alt="" />
       <div className="pad">
       <h5 >Formalising real estate in Pakistan</h5>
       <p>Read More <FaArrowRight /></p>
@@ -25,7 +25,7 @@ const News = () => {
 
       <div className="newsCart">
       <a href="https://www.dawn.com/news/amp/1845737"  target='blank'>
-      <img src="/tax2.jpg" alt="" />
+      <img src="./tax2.jpg" alt="" />
       <div className="pad">
       <h5 >Tax on property</h5>
       <p>Read More <FaArrowRight /></p>

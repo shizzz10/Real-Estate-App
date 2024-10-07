@@ -5,6 +5,8 @@ import { FaInstagram } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { FaPhoneSquareAlt } from "react-icons/fa";
 import { CiLocationOn } from "react-icons/ci";
+import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link/dist/react-router-hash-link.cjs.production';
 const Footer = () => {
   return (
     <FooterDiv>
@@ -33,8 +35,8 @@ const Footer = () => {
         </div>
         <div className="about lowercol">
         <h5>About Us</h5>
-        <a href="">About</a>
-        <a href="">Contact</a>
+        <HashLink smooth to="#home">Home</HashLink>
+        <Link  to="/contact">Contact</Link>
         <a href="">FAQ's</a>
         <a href="">Pricing Plan</a>
         <a href="">Blog</a>

@@ -1,11 +1,23 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import styled from 'styled-components';
 import { FaRupeeSign } from "react-icons/fa6";
 import { CiLocationOn } from "react-icons/ci";
 import { FaBed } from "react-icons/fa";
 import { GiBathtub } from "react-icons/gi";
 import { PiResizeThin } from "react-icons/pi";
-const Products = ({key, image, title, location, bed, bathRoom, area, price}) => {
+import { MdOutlineFavorite, MdOutlineFavoriteBorder } from 'react-icons/md';
+import { CounterContext } from './context/FavoritesContext';
+
+  const Products = ({ image, title, location, bed, bathRoom, area, price}) => {
+    const [isFavorite, setFavorite] = useState(false);
+
+    const { updateCount } = useContext(CounterContext);
+
+    const handleFavBtn = () => {
+      setFavorite(prev => !prev)
+      updateCount(isFavorite); 
+    }
+
   return (
     <Product >
       <div className="items" >
@@ -25,8 +37,11 @@ const Products = ({key, image, title, location, bed, bathRoom, area, price}) => 
          <p><CiLocationOn /> {location}</p>
 
          <div className="flexContainer2">
-            <p> <FaBed />  {bed} | <GiBathtub /> {bathRoom} | <PiResizeThin /> {area}</p>
+            <p> <FaBed />  {bed} | <GiBathtub /> {bathRoom} | <PiResizeThin /> {area} |</p>
+            <p onClick={handleFavBtn} className='favIcon'>
+            {isFavorite ? <MdOutlineFavorite size="1rem" /> : <MdOutlineFavoriteBorder size="1rem" />} </p>
          </div>
+         
         
     </div>
     
@@ -93,7 +108,12 @@ const Product = styled.div`
     margin-left: auto;
  }
  .flexContainer2{
+  display: flex;
+  align-items: center;
    margin-left: 4px;
+ }
+ .flexContainer2 .favIcon{
+   margin-left: auto;
  }
 
 
