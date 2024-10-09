@@ -30,12 +30,12 @@ const Navbar = () => {
           <GlobalStyles />
           <div className="top pad">
             <div className="topLogo">
-              <img className="logoImg" src="./mg.png" alt="" />
+              <img className="logoImg" src="mg.png" loading="lazy" alt="" />
             </div>
             <div className="topText">
-              <HashLink className="nav" >
-              <MdOutlineFavorite className="navIcon" size="1rem" />
-              <span >  ({count}) </span>
+              <HashLink className="nav">
+                <MdOutlineFavorite className="navIcon" size="1rem" />
+                <span> ({count}) </span>
               </HashLink>
               <HashLink className="nav" smooth to="#products">
                 Inventory
@@ -43,13 +43,15 @@ const Navbar = () => {
               <HashLink className="nav" smooth to="#footer">
                 About
               </HashLink>
-              <Link className="nav" to="/contact">Contact Us</Link>
+              <Link className="nav" to="/contact">
+                Contact Us
+              </Link>
             </div>
           </div>
 
           <div className="main pad">
             <div className="mainText">
-              <h1 >Find your Dream Place</h1>
+              <h1>Find your Dream Place</h1>
               <p>
                 We are glad to have you around. Feel free to browse our website.
               </p>
@@ -81,7 +83,12 @@ const Navbar = () => {
             </div>
 
             <div className="mainImg">
-              <img className="mainImage" src="./mainBg.png" alt="" />
+              <img
+                className="mainImage"
+                src="mainBg.png"
+                alt="hero-image"
+                rel="preload"
+              />
             </div>
           </div>
         </div>

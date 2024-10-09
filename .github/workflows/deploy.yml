@@ -12,21 +12,22 @@ jobs:
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v3  
+        uses: actions/checkout@v3  # Use a specific version (recommended v3 or specific commit)
 
       - name: Setup Node
-        uses: actions/setup-node@v3  
+        uses: actions/setup-node@v3.5.0  # Specify a version (replace with the latest stable if needed)
         with:
           node-version: '20'  # Specify Node.js version as a string
+          cache: 'npm'  # Caching for npm dependencies
 
       - name: Install dependencies
-        uses: bahmutov/npm-install@v1
+        run: npm install  # Run npm install directly
 
       - name: Build project
         run: npm run build
 
       - name: Upload production-ready build files
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4.1.0  # Specify a version for upload-artifact
         with:
           name: production-files
           path: ./dist
@@ -39,13 +40,13 @@ jobs:
 
     steps:
       - name: Download artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.0  # Specify a version for download-artifact
         with:
           name: production-files
           path: ./dist
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v3.10.0  # Specify a version for gh-pages action
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist

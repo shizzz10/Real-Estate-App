@@ -1,32 +1,34 @@
 import { Link } from "react-router-dom";
-import styled from "styled-components"
+import styled from "styled-components";
 
 const NotFoundPage = () => {
   return (
     <NotFoundPageDiv>
-    <div>
-      <h1>Page Not Found</h1>
-      <Link to='/' className="homeBtn">Go Back to Home Page</Link>
-    </div>
+      <div>
+        <h1>Page Not Found</h1>
+        <Link to="/" className="homeBtn">
+          Go Back to Home Page
+        </Link>
+      </div>
     </NotFoundPageDiv>
-  )
-}
+  );
+};
 
 export default NotFoundPage;
 
 const NotFoundPageDiv = styled.div`
-display: flex;
-align-items: center;
-justify-content: center;
-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 
- div{
+  div {
     display: flex;
     flex-direction: column;
     gap: 40px;
- }
+  }
 
-.homeBtn{
+  .homeBtn {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -36,9 +38,8 @@ height: 100vh;
     border-radius: 5px;
     text-decoration: none;
     padding: 5px;
-    
-}
-.homeBtn:hover {
+  }
+  .homeBtn:hover {
     background-color: #2e236c;
   }
-`
+`;

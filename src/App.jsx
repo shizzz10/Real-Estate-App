@@ -3,8 +3,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import NotFoundPage from "./components/NotFoundPage";
 import { Suspense, lazy } from "react";
 import { CounterProvider } from "./components/context/FavoritesContext";
-// import HomePage from "./components/HomePage";
-// import Contact from './components/Contact';
 
 const HomePage = lazy(() => import("./components/HomePage"));
 const Contact = lazy(() => import("./components/Contact"));
@@ -22,7 +20,7 @@ const router = createBrowserRouter(
     },
   ],
   {
-    basename: "/Real-Estate-App",
+    basename: import.meta.env.BASE_URL,
   }
 );
 
@@ -30,9 +28,9 @@ function App() {
   return (
     <>
       <CounterProvider>
-      <Suspense fallback={<div>Loading</div>}>
-        <RouterProvider router={router} />
-      </Suspense>
+        <Suspense fallback={<div>Loading</div>}>
+          <RouterProvider router={router} />
+        </Suspense>
       </CounterProvider>
     </>
   );
